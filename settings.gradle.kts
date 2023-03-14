@@ -13,7 +13,5 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "GithubMultiModule"
-include (":app")
-include(":home:data")
-include(":home:domain")
-include(":home:presentation")
+include (":app",":home:data",":home:domain",":home:presentation",":commons")
+

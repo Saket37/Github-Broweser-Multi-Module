@@ -21,8 +21,7 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
             )
         }
     }
@@ -36,7 +35,8 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":commons"))
+    implementation(project(":home:domain"))
     implementation(Dependencies.Core.legacySupport)
     implementation(Dependencies.Core.coreKtx)
     implementation(Dependencies.Core.appCompat)

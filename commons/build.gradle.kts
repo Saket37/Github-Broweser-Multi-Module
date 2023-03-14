@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.domain"
+    namespace = "com.example.commons"
     compileSdk = 33
 
     defaultConfig {
@@ -21,7 +21,8 @@ android {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
             )
         }
     }
@@ -35,20 +36,24 @@ android {
 }
 
 dependencies {
-    implementation(project(":commons"))
+
     implementation(Dependencies.Core.legacySupport)
     implementation(Dependencies.Core.coreKtx)
     implementation(Dependencies.Core.appCompat)
     implementation(Dependencies.material)
     implementation(Dependencies.constraintLayout)
-    implementation(Dependencies.Coroutines.androidCoroutines)
-    implementation(Dependencies.Coroutines.coreCoroutines)
 
     // Dagger - Hilt
     implementation(Dependencies.Hilt.hilt)
     implementation(Dependencies.Hilt.hiltViewModel)
     kapt(Dependencies.Hilt.hiltCompiler)
 
+    //Retrofit And Moshi
+    implementation(Dependencies.RetrofitAndMoshi.retrofit)
+    implementation(Dependencies.RetrofitAndMoshi.retrofitMoshiConverter)
+    implementation(Dependencies.RetrofitAndMoshi.loggingInterceptor)
+    implementation(Dependencies.RetrofitAndMoshi.moshi)
+    implementation(Dependencies.RetrofitAndMoshi.moshiAdapters)
     testImplementation(Dependencies.junit)
     androidTestImplementation(Dependencies.junitExt)
     androidTestImplementation(Dependencies.espresso)
